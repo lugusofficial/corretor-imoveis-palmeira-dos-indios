@@ -1,0 +1,141 @@
+/* Section styles for this site. Base rules and tokens live in base.css and tokens.css: use the custom properties, never raw values. */
+/* Style surfaces: No cards. Hairline rules (1px muted) separate items. Media gets medium radius. */
+/* Decorative effect: none in the layout. One keyframes block (surgir) drives the scroll reveal and the hero arrow. */
+
+/* Marca: simbolo vetorizado do logo do corretor mais o nome em texto */
+.brand { display: inline-flex; align-items: center; gap: var(--space-3); }
+.brand__simbolo { width: auto; height: 3rem; border-radius: var(--radius-sm); flex: none; }
+.brand__nome { display: grid; line-height: var(--leading-tight); }
+.brand__sub { font-family: var(--font-body); font-size: var(--step--1); font-weight: var(--weight-body); letter-spacing: 0.04em; color: var(--color-accent); }
+.site-footer .brand__nome { color: var(--color-text); }
+
+/* hero: video do agreste ocupando a secao inteira, texto claro sobre um veu escuro */
+.hero--video {
+  position: relative; overflow: hidden; isolation: isolate;
+  min-height: clamp(32rem, 82svh, 46rem);
+  display: grid; align-items: center;
+  padding-block: var(--space-8);
+  background: var(--color-text);
+}
+.hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+/* Sem autoplay (economia de bateria do iPhone) o Safari desenha um play por
+   cima do video. O botao some e o js/hero.js troca o video pelo webp animado. */
+.hero__video::-webkit-media-controls,
+.hero__video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
+/* No celular o heroi enche a tela abaixo do cabecalho; a seta avisa que a pagina continua. */
+@media (max-width: 47.99em) { .hero--video { min-height: max(32rem, calc(100svh - 5rem)); } }
+.hero__veu { position: absolute; inset: 0; z-index: -1; background: color-mix(in srgb, var(--color-text) 60%, transparent); }
+.hero__grid { width: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; }
+.hero__text { max-width: 40rem; color: var(--color-bg); }
+.hero__text h1 { max-width: 14ch; color: var(--color-bg); }
+.hero__text .label, .hero__text .lead { color: var(--color-surface); }
+.hero__text .btn--primary { background: var(--color-bg); color: var(--color-accent); }
+.hero__text .btn--primary:hover { background: var(--color-surface); opacity: 1; }
+.hero__text .btn--link { color: var(--color-bg); }
+.hero__text .btn--link:hover { color: var(--color-surface); }
+.hero__seta {
+  position: absolute; left: 50%; bottom: var(--space-5); transform: translateX(-50%);
+  display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: var(--radius-pill);
+  color: var(--color-bg); background: color-mix(in srgb, var(--color-text) 45%, transparent);
+}
+.hero__seta svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* about: about-statement, com o avatar redondo do corretor ao lado */
+.about__grid { display: grid; gap: var(--space-6); align-items: center; max-width: 64rem; }
+.about__foto { width: 10rem; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-pill); }
+.about__statement { max-width: 22ch; color: var(--color-accent); }
+.about__body p { max-width: 60ch; }
+.about__body a { color: var(--color-accent); }
+@media (min-width: 48em) {
+  .about__grid { grid-template-columns: 12rem 1fr; gap: var(--space-8); }
+  .about__foto { width: 12rem; }
+}
+
+/* imoveis: um destaque grande e dois menores ao lado */
+.gallery__intro p { max-width: 50ch; }
+.gallery__grid { display: grid; gap: var(--space-6); }
+.gallery__item { display: grid; gap: var(--space-3); align-content: start; }
+.gallery__item img { width: 100%; border-radius: var(--radius-md); transition: transform 400ms ease; }
+.gallery__item:hover img { transform: translateY(calc(-1 * var(--space-1))); }
+.gallery__item figcaption { display: grid; gap: var(--space-1); }
+.gallery__nome { font-family: var(--font-display); font-size: var(--step-1); }
+.gallery__info { font-size: var(--step--1); color: var(--color-muted); }
+@media (min-width: 48em) {
+  .gallery__grid { grid-template-columns: 3fr 2fr; }
+  .gallery__item--featured { grid-row: span 2; grid-template-rows: 1fr auto; }
+  .gallery__item--featured img { height: 100%; object-fit: cover; }
+}
+
+/* services: services-open-columns, numeradas */
+.services__list { display: grid; gap: var(--space-7) var(--space-8); }
+.services__item .numeral { display: block; font-size: var(--step-3); }
+@media (min-width: 40em) { .services__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 64em) { .services__list { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* proof: depoimentos em slides. Dois por tela no desktop, com um fio entre eles.
+   Sem script a janela rola com o dedo; com script o trilho anda por transform. */
+.depo__janela { overflow-x: auto; scrollbar-width: none; }
+.depo__janela::-webkit-scrollbar { display: none; }
+.depo.is-live .depo__janela { overflow: hidden; }
+.depo__janela:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+.depo__trilho { display: flex; }
+@media (prefers-reduced-motion: no-preference) { .depo__trilho { transition: transform 500ms ease; } }
+.depo__item {
+  flex: 0 0 100%; margin: 0; display: grid; gap: var(--space-4); align-content: start;
+  padding-inline: var(--space-5) var(--space-6); border-left: 1px solid var(--color-rule);
+}
+@media (min-width: 56em) { .depo__item { flex-basis: 50%; } }
+.depo__item blockquote { margin: 0; font-family: var(--font-display); font-size: var(--step-2); line-height: 1.3; }
+.depo__item blockquote p::before { content: "\201C"; }
+.depo__item blockquote p::after { content: "\201D"; }
+.depo__item figcaption { color: var(--color-muted); }
+.depo__controles { display: flex; gap: var(--space-3); }
+.depo__seta {
+  display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: var(--radius-pill);
+  border: 1px solid var(--color-rule); background: transparent; color: var(--color-text); cursor: pointer;
+}
+.depo__seta:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.depo__seta--prev .icon { transform: scaleX(-1); }
+.depo__nota { font-size: var(--step--1); }
+
+/* contact: contact-form-split, formulario que abre o WhatsApp e os dados do corretor */
+.contact__grid { display: grid; gap: var(--space-8); align-items: start; }
+.contact__form { max-width: 32rem; }
+.contact__form input::placeholder { color: var(--color-muted); }
+.contact__foto { width: 6rem; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-pill); }
+.contact__nome { display: grid; font-family: var(--font-display); font-size: var(--step-2); line-height: var(--leading-tight); }
+.contact__nome span { font-family: var(--font-body); font-size: var(--step--1); color: var(--color-muted); margin-top: var(--space-2); }
+.contact__links a, .contact__lugar { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 2.75rem; }
+.contact__links a { text-decoration: none; transition: color 200ms ease; }
+.contact__links a:hover { color: var(--color-accent); text-decoration: underline; }
+@media (min-width: 48em) {
+  .contact__grid { grid-template-columns: 7fr 5fr; gap: var(--space-9); }
+  .contact__fatos { padding-top: var(--space-8); }
+}
+
+/* Links de texto */
+.btn--link { transition: color 200ms ease; }
+.btn--link:hover { color: var(--color-accent); }
+
+/* Movimento: um unico bloco de keyframes. Reveal no scroll (so CSS, so onde ha
+   suporte) e a seta do heroi descendo; nada disso roda com movimento reduzido. */
+@keyframes surgir { from { opacity: 0; transform: translateY(var(--desloca, var(--space-6))); } }
+@media (prefers-reduced-motion: no-preference) {
+  .hero__seta svg { --desloca: calc(-1 * var(--space-3)); animation: surgir 1.8s ease-out infinite; }
+  @supports (animation-timeline: view()) {
+    .reveal { animation: surgir linear both; animation-timeline: view(); animation-range: entry 0% entry 35%; }
+  }
+}
+.contact__lugar { padding-left: calc(1.25em + var(--space-2)); color: var(--color-muted); }
+
+/* Cabecalho: a marca com simbolo e mais larga que a do scaffold, entao o menu
+   continua recolhido ate 64em (em 768 px os links quebravam no meio da palavra). */
+.site-nav a { white-space: nowrap; }
+@media (min-width: 48em) and (max-width: 63.99em) {
+  .nav-toggle { display: inline-flex; }
+  .site-nav { display: none; width: 100%; padding-top: var(--space-4); }
+  .site-nav[data-open="true"] { display: block; }
+  .site-nav ul { flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-4); }
+}
+
+.icon--fill { fill: currentColor; stroke: none; }

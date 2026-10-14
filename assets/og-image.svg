@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F7F3EF"/>
+  <g transform="translate(80 150) scale(0.5) translate(-24 -196)">
+  <circle cx="742" cy="405" r="86" fill="#E8B729"/>
+  <g fill="#780B0C">
+    <rect x="319" y="349" width="40" height="170"/>
+    <rect x="364" y="264" width="84" height="255"/>
+    <path d="M452 519V276h16l12-22 12 22h24v243z"/>
+    <rect x="522" y="206" width="97" height="313"/>
+    <rect x="625" y="351" width="57" height="168"/>
+    <rect x="300" y="495" width="410" height="46"/>
+    <path d="M135 442h127l42 47H176z"/>
+    <rect x="116" y="497" width="8" height="74"/>
+    <rect x="206" y="503" width="100" height="22"/>
+    <path d="M879 439H746l-34 56h120z"/>
+    <rect x="889" y="501" width="8" height="70"/>
+    <rect x="700" y="502" width="104" height="22"/>
+    <path d="M28 666Q512 350 996 666Q512 420 28 666z"/>
+  </g>
+  <g fill="none" stroke="#780B0C" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M84 490l51-48 41 47"/>
+    <path d="M832 496l47-57 50 51"/>
+  </g>
+  <g fill="#780B0C">
+    <circle cx="169" cy="516" r="5"/>
+    <circle cx="848" cy="512" r="5"/>
+  </g>
+  <g fill="#FFFFFF">
+    <rect x="329" y="366" width="9" height="15" rx="4"/>
+    <rect x="341" y="414" width="9" height="15" rx="4"/>
+    <rect x="329" y="460" width="9" height="15" rx="4"/>
+    <rect x="380" y="286" width="9" height="15" rx="4"/>
+    <rect x="422" y="300" width="9" height="15" rx="4"/>
+    <rect x="380" y="332" width="9" height="15" rx="4"/>
+    <rect x="401" y="366" width="9" height="15" rx="4"/>
+    <rect x="380" y="400" width="9" height="15" rx="4"/>
+    <rect x="422" y="420" width="9" height="15" rx="4"/>
+    <rect x="401" y="456" width="9" height="15" rx="4"/>
+    <rect x="465" y="296" width="9" height="15" rx="4"/>
+    <rect x="494" y="330" width="9" height="15" rx="4"/>
+    <rect x="465" y="372" width="9" height="15" rx="4"/>
+    <rect x="494" y="414" width="9" height="15" rx="4"/>
+    <rect x="465" y="452" width="9" height="15" rx="4"/>
+    <rect x="538" y="226" width="9" height="15" rx="4"/>
+    <rect x="594" y="226" width="9" height="15" rx="4"/>
+    <rect x="566" y="262" width="9" height="15" rx="4"/>
+    <rect x="538" y="300" width="9" height="15" rx="4"/>
+    <rect x="594" y="300" width="9" height="15" rx="4"/>
+    <rect x="566" y="338" width="9" height="15" rx="4"/>
+    <rect x="538" y="376" width="9" height="15" rx="4"/>
+    <rect x="594" y="376" width="9" height="15" rx="4"/>
+    <rect x="566" y="414" width="9" height="15" rx="4"/>
+    <rect x="538" y="452" width="9" height="15" rx="4"/>
+    <rect x="594" y="452" width="9" height="15" rx="4"/>
+    <rect x="638" y="372" width="9" height="15" rx="4"/>
+    <rect x="662" y="400" width="9" height="15" rx="4"/>
+    <rect x="638" y="432" width="9" height="15" rx="4"/>
+    <rect x="662" y="462" width="9" height="15" rx="4"/>
+  </g>
+  </g>
+  <text x="620" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#1D1B18">Jônatas Lima</text>
+  <text x="620" y="318" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#62534B">Consultor imobiliário <tspan fill="#780B0C">· Palmeira Imóveis</tspan></text>
+  <text x="80" y="470" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#1D1B18">Casas e terrenos em Palmeira dos Índios e região</text>
+  <text x="80" y="535" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#62534B">CRECI 3691  ·  WhatsApp (82) 99971 5971</text>
+  <rect x="80" y="575" width="140" height="6" rx="3" fill="#E8B729"/>
+</svg>
