@@ -24,16 +24,22 @@
 
     // data-depo-um: um slide por vez sempre, quando a secao divide espaco com outra coisa.
     var porTela = function () { return largo.matches && !raiz.hasAttribute('data-depo-um') ? 2 : 1; };
-    var ir = function (alvo) {
+    // Troca com fade: o depoimento some, o trilho pula sem animar e o novo aparece.
+    var troca = null;
+    var ir = function (alvo, sem) {
       var ultimo = Math.max(0, total - porTela());
       indice = alvo > ultimo ? 0 : (alvo < 0 ? ultimo : alvo);
-      trilho.style.transform = 'translateX(' + (-indice * 100 / porTela()) + '%)';
+      var mover = function () { trilho.style.transform = 'translateX(' + (-indice * 100 / porTela()) + '%)'; };
+      if (sem || reduced) { mover(); return; }
+      janela.classList.add('is-trocando');
+      clearTimeout(troca);
+      troca = setTimeout(function () { mover(); janela.classList.remove('is-trocando'); }, 350);
     };
     var parar = function () { parado = true; };
     prev.addEventListener('click', function () { parar(); ir(indice - 1); });
     next.addEventListener('click', function () { parar(); ir(indice + 1); });
     janela.addEventListener('focusin', parar);
-    if (largo.addEventListener) { largo.addEventListener('change', function () { ir(indice); }); }
+    if (largo.addEventListener) { largo.addEventListener('change', function () { ir(indice, true); }); }
 
     // Arraste horizontal; o gesto vertical continua rolando a pagina.
     var x0 = null, y0 = null;
@@ -52,7 +58,7 @@
       new IntersectionObserver(function (es) { visivel = es[0].isIntersecting; }, { threshold: 0.5 }).observe(janela);
     }
     setInterval(function () { if (!parado && visivel && !document.hidden) { ir(indice + 1); } }, 7000);
-    ir(0);
+    ir(0, true);
   }
 
   depoimentos();

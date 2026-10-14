@@ -79,7 +79,10 @@
 .depo.is-live .depo__janela { overflow: hidden; }
 .depo__janela:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
 .depo__trilho { display: flex; }
-@media (prefers-reduced-motion: no-preference) { .depo__trilho { transition: transform 500ms ease; } }
+@media (prefers-reduced-motion: no-preference) {
+  .depo__janela { transition: opacity 350ms ease, transform 350ms ease; }
+  .depo__janela.is-trocando { opacity: 0; transform: translateY(0.5rem); }
+}
 .depo__item {
   flex: 0 0 100%; margin: 0; display: grid; gap: var(--space-4); align-content: start;
   padding-inline: var(--space-5) var(--space-6); border-left: 1px solid var(--color-rule);
